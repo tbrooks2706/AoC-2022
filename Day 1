@@ -1,5 +1,5 @@
 #opening input file and putting it in a list
-with open(r"C:\Users\Tom.Brooks\OneDrive - BJSS Ltd\Documents\Coding\aoc_2022\Day 1-1.txt") as txt_file:
+with open(r"C:\Users\Tom.Brooks\OneDrive - BJSS Ltd\Documents\Coding\AoC-2022\Day 1-1.txt") as txt_file:
     init_list = []
     for line in txt_file:
         init_list.append(line)
@@ -42,7 +42,6 @@ def sum_top_three(list):
     final_totals.sort(reverse=True)
     running_sum = 0
     for index in range(3):
-        #print(index)
         running_sum += list[index]
     return running_sum
 
