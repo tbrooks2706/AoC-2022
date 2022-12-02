@@ -32,7 +32,7 @@ def list_of_totals(list):
     return totals
 
 #calling the functions all in one go
-init_list = read_file(r"C:\Users\Tom.Brooks\OneDrive - BJSS Ltd\Documents\Coding\AoC-2022\Day 1-1.txt")
+init_list = read_file(r"C:\Users\Tom.Brooks\OneDrive - BJSS Ltd\Documents\Coding\AoC-2022\Day_1.txt")
 working_list = clean_list(init_list)
 final_totals = list_of_totals(working_list)
 final_top_three = sum(final_totals[0:3])
