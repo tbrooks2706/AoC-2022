@@ -1,8 +1,10 @@
 #opening input file and putting it in a list
-with open(r"C:\Users\Tom.Brooks\OneDrive - BJSS Ltd\Documents\Coding\AoC-2022\Day 1-1.txt") as txt_file:
-    init_list = []
-    for line in txt_file:
-        init_list.append(line)
+def read_file(file_path):
+    with open(file_path) as txt_file:
+        init_list = []
+        for line in txt_file:
+            init_list.append(line)
+    return init_list
 
 #clean list of line breaks, change str to int
 #add a final "" on the end so list_of_totals works below
@@ -16,9 +18,7 @@ def clean_list(list):
     new_working.append("")
     return new_working
 
-working_list = clean_list(init_list)
-
-#create list of running totals, using "" as the separator
+#create list of running totals, using "" as the separator, and sort values descending
 def list_of_totals(list):
     totals = []
     running_total = 0
@@ -28,24 +28,17 @@ def list_of_totals(list):
             running_total = 0
         else:
             running_total += int(item)
+    totals.sort(reverse=True)
     return totals
 
+#calling the functions all in one go
+init_list = read_file(r"C:\Users\Tom.Brooks\OneDrive - BJSS Ltd\Documents\Coding\AoC-2022\Day 1-1.txt")
+working_list = clean_list(init_list)
 final_totals = list_of_totals(working_list)
-#check output
-#print(final_totals)
+final_top_three = sum(final_totals[0:3])
 
 #answer to part 1
 print(max(final_totals))
-
-#sort list and sum first 3 elements
-def sum_top_three(list):
-    final_totals.sort(reverse=True)
-    running_sum = 0
-    for index in range(3):
-        running_sum += list[index]
-    return running_sum
-
-final_top_three = sum_top_three(final_totals)
 
 #answer to part 2
 print(final_top_three)
