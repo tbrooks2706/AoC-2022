@@ -1,9 +1,4 @@
-#opening input file and putting it in a list
-with open(r"C:\Users\Tom.Brooks\OneDrive - BJSS Ltd\Documents\Coding\AoC-2022\Day 2.txt") as txt_file:
-    init_list = []
-    for line in txt_file:
-        init_list.append(line.replace("\n", ""))
-    #print(init_list)
+import general_functions
 
 #abc = opponent RA, PB, SC (0)
 #xyz = you RPS (1RX, 2PY, 3SZ)
@@ -85,9 +80,6 @@ def calculate_result_part_two(game):
             #win therefore rock
             return 6 + 1
 
-#cut_list = init_list[:15]
-#print(cut_list)
-
 def calculate_scores_one(list):
     running_total = 0
     for game in list:
@@ -100,6 +92,7 @@ def calculate_scores_two(list):
         running_total += calculate_result_part_two(game)
     return running_total
 
+init_list = general_functions.read_file(r"C:\Users\Tom.Brooks\OneDrive - BJSS Ltd\Documents\Coding\AoC-2022\Day_2.txt")
 part_1_result = calculate_scores_one(init_list)
 print(part_1_result)
 part_2_result = calculate_scores_two(init_list)
