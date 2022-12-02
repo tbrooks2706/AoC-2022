@@ -3,7 +3,7 @@ import general_functions
 #clean list of line breaks, change str to int
 #add a final "" on the end so list_of_totals works below
 def clean_list(list):
-    new_working = []
+    new_working = list
     for item in new_working:
         if item != "":
             item = int(item)/1
