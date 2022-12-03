@@ -1,17 +1,9 @@
-#opening input file and putting it in a list
-def read_file(file_path):
-    with open(file_path) as txt_file:
-        init_list = []
-        for line in txt_file:
-            init_list.append(line)
-    return init_list
+import general_functions
 
 #clean list of line breaks, change str to int
 #add a final "" on the end so list_of_totals works below
 def clean_list(list):
-    new_working = []
-    for item in list:
-        new_working.append(item.replace("\n", ""))
+    new_working = list
     for item in new_working:
         if item != "":
             item = int(item)/1
@@ -32,7 +24,7 @@ def list_of_totals(list):
     return totals
 
 #calling the functions all in one go
-init_list = read_file(r"C:\Users\Tom.Brooks\OneDrive - BJSS Ltd\Documents\Coding\AoC-2022\Day_1.txt")
+init_list = general_functions.read_file(r"C:\Users\Tom.Brooks\OneDrive - BJSS Ltd\Documents\Coding\AoC-2022\Day_1.txt")
 working_list = clean_list(init_list)
 final_totals = list_of_totals(working_list)
 final_top_three = sum(final_totals[0:3])
