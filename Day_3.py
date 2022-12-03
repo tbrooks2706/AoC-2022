@@ -15,7 +15,9 @@ init_list = general_functions.read_file(r"C:\Users\Tom.Brooks\OneDrive - BJSS Lt
 #rucksack1 = Rucksack("fsHtVbjtqstBghhwwPBw")
 #print(rucksack1.first_half())
 
-def find_common_character_in_halves(string):
+#split each string into halves and find the character common to both halves
+#part 1 only
+def find_common_character(string):
     split_point = int(len(string) / 2)
     first_half = string[:split_point]
     second_half = string[split_point:]
@@ -24,7 +26,17 @@ def find_common_character_in_halves(string):
             common = char
     return common
 
-def find_common_character_in_group(big_list):
+#find the common character for every string in the list, and concat them together
+#part 1 only
+def string_common_characters(list):
+    common_string = ""
+    for item in list:
+        common_string += find_common_character(item)
+    return common_string
+
+#find the common characters from each group of 3 and concat them together
+#part 2 only 
+def find_group_string(big_list):
     ind = 0
     common = ""
     while ind <= (len(big_list) - 3):
@@ -40,12 +52,8 @@ def find_common_character_in_group(big_list):
         continue
     return common
 
-def string_common_characters(list):
-    common_string = ""
-    for item in list:
-        common_string += find_common_character_in_halves(item)
-    return common_string
-
+#return scores based on a string of characters
+#part 1 and part 2
 def get_scores(string):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     full_alphabet = alphabet
@@ -59,7 +67,7 @@ def get_scores(string):
 
 #execute functions
 common_characters_1 = string_common_characters(init_list)
-common_characters_2 = find_common_character_in_group(init_list)
+common_characters_2 = find_group_string(init_list)
 final_score = get_scores(common_characters_1)
 group_score = get_scores(common_characters_2)
 
