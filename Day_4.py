@@ -10,11 +10,7 @@ class Pair:
                 self.working_list.append(int(num))
 
     def range2_contains_range1(self):
-        #first range in pair is 1a and 1b, second range is 2a and 2b
-        #index 0 1a, 1 1b, 2 2a, 3 2b
-        #2a <= 1a AND 2b >= 1b
-        #2, 99, 1, 100 - yes, yes
-        #2, 100, 2, 99 - yes, no
+        #is bottom of pair 2, less than bottom of pair 1 AND top of pair 2, greater than top of pair 1
         if (self.working_list[2] <= self.working_list[0] and self.working_list[3] >= self.working_list[1]):
             stat1 = True
         else:
@@ -22,13 +18,7 @@ class Pair:
         return stat1
 
     def range1_contains_range2(self):
-        #first range in pair is 1a and 1b, second range is 2a and 2b
-        #index 0 1a, 1 1b, 2 2a, 3 2b
-        #1a <= 2a AND 1b >= 2b
-        #2, 99, 1, 100 - no, no
-        #2, 100, 2, 99! - yes, yes
-        #1, 99, 2, 100 - yes, no
-        #1, 100, 2, 99! - yes, yes
+        #is bottom of pair 1, less than bottom of pair 2 AND top of pair 1, greater than top of pair 2
         if (self.working_list[0] <= self.working_list[2] and self.working_list[1] >= self.working_list[3]):
             stat1 = True
         else:
@@ -42,21 +32,13 @@ class Pair:
             return False
 
     def range_overlap(self):
-        #first range in pair is 1a and 1b, second range is 2a and 2b
-        #index 0 1a, 1 1b, 2 2a, 3 2b
-        #if either number in pair 1, is between 2a and 2b
-        #OR if either number in pair 2, is between 1a and 1b
-        #2, 9, 10, 100 - no, no
-        #2, 10, 10, 10! - yes, yes
-        #1, 99, 100, 100 - no, no
-        #1, 100, 2, 99! - no, yes
-        #1, 50, 49, 51! - yes, yes
-        #100, 100, 1, 99 - no, no
         test_1 = False
         test_2 = False
+        #is either number in pair 1, in range of pair 2
         for num in self.working_list[:1]:
             if num >= self.working_list[2] and num <= self.working_list[3]:
                 test_1 = True
+        #is either number in pair 2, in range of pair 1
         for num in self.working_list[2:3]:
             if num >= self.working_list[0] and num <= self.working_list[1]:
                 test_2 = True
