@@ -1,7 +1,5 @@
 import general_functions
 
-init_list = general_functions.read_file(r"C:\Users\Tom\OneDrive\Documents\Tom's Stuff\Hobbies\Coding\AoC-2022\Day_4.txt")
-
 class Pair:
     def __init__(self, string):
         self.first_list = string.split(",")
@@ -66,7 +64,9 @@ class Pair:
             return True
         else:
             return False
+#end of class methods
 
+#part 1 calc
 def count_duplicating_pairs(list):
     counter = 0
     for item in list:
@@ -75,6 +75,7 @@ def count_duplicating_pairs(list):
             counter += 1
     return counter
 
+#part 2 calc
 def count_overlapping_pairs(list):
     counter = 0
     for item in list:
@@ -83,6 +84,8 @@ def count_overlapping_pairs(list):
             counter += 1
     return counter
 
+#execute code in one go
+init_list = general_functions.read_file(r"C:\Users\Tom\OneDrive\Documents\Tom's Stuff\Hobbies\Coding\AoC-2022\Day_4.txt")
 duplicate_count = count_duplicating_pairs(init_list)
 overlap_count = count_overlapping_pairs(init_list)
 
