@@ -23,7 +23,7 @@ def find_different_set(string, check_num_chars):
             start_ind += 1
 
 #answer to part 1
-print(find_different_four(init_string, 4))
+print(find_different_set(init_string, 4))
 
 #answer to part 2
-print(find_different_four(init_string, 14))
+print(find_different_set(init_string, 14))
