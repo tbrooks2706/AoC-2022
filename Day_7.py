@@ -1,3 +1,6 @@
+##NOTE
+##have now realised the below approach relies on each folder having a unique name, which it turns out they don't. rage quitting, might come back to it at some point in the future.
+
 import general_functions
 import copy
 
