@@ -7,3 +7,6 @@ def read_file(file_path):
         for line in txt_file:
             init_list.append(line.replace("\n", ""))
     return init_list
+
+def reverse_string(string):
+    return string[::-1]
